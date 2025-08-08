@@ -7,7 +7,7 @@ import ConcentricPanel from "@/components/concentric-panel"
 import SidebarNav from "@/components/sidebar-nav"
 import ContactsCard from "@/components/contacts-card"
 import SkillsBlock from "@/components/skills"
-import getAge from "@/lib/age"
+import GetAge from "@/lib/age"
 import Hellosvg from "../../public/images/hello.svg"
 import FouroFoursvg from "../../public/images/fourofour.svg"
 
@@ -134,7 +134,7 @@ function HelloBlock() {
     <div className="h-full md:h-[430px] p-6 overflow-auto scrollbar-hide">
         <Image src={Hellosvg} alt="Hello" height={80}/>
         <p className="pt-8 max-w-prose text-sm md:text-base">
-          (He/Him) • {getAge()+"y/o"} • India
+          (He/Him) • {GetAge()+"y/o"} • India
           <br></br>
           Rust Developer • Full-Stack Developer • Open Source Contributor
           <br></br>

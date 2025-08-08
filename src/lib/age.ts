@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 
-export default function getAge() {
+export default function GetAge() {
   
   const age = useMemo(() => {
     const birthDate = new Date('2005-06-21'); // 🎂 your birthday here
