@@ -3,9 +3,9 @@
 import { useMemo } from 'react';
 
 export default function getAge() {
-  const birthDate = new Date('2005-06-21'); // 🎂 your birthday here
-
+  
   const age = useMemo(() => {
+    const birthDate = new Date('2005-06-21'); // 🎂 your birthday here
     const today = new Date();
     let years = today.getFullYear() - birthDate.getFullYear();
     
@@ -19,7 +19,7 @@ export default function getAge() {
     }
 
     return years;
-  }, [birthDate]);
+  }, []);
 
   return age;
 }

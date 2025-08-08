@@ -3,7 +3,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import ConcentricPanel from "@/components/concentric-panel"
 import SidebarNav from "@/components/sidebar-nav"
 import ContactsCard from "@/components/contacts-card"
