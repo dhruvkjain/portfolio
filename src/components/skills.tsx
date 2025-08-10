@@ -9,7 +9,8 @@ import {
   FaLinux,
   FaFigma,
   FaCuttlefish, // used for C
-  FaGithub
+  FaGithub,
+  FaWindows
 } from 'react-icons/fa';
 
 import {
@@ -33,7 +34,8 @@ import {
   SiJest,
   // SiSupertest,
   // SiHusky,
-  SiPm2
+  SiPm2,
+  SiArchlinux
 } from 'react-icons/si';
 
 import { VscVscode } from "react-icons/vsc";
@@ -90,6 +92,10 @@ const techs = {
 //   { icon: <SiSupertest />, href: 'https://github.com/visionmedia/supertest', name: 'Supertest' },
 //   { icon: <SiHusky />, href: 'https://typicode.github.io/husky/', name: 'Husky' },
   { icon: <SiPm2 />, href: 'https://pm2.keymetrics.io/', name: 'PM2' },
+  ],
+  "Operating Systems": [
+    { icon: <SiArchlinux />, href: 'https://archlinux.org/', name: 'Arch Linux' },
+    { icon: <FaWindows />, href: 'https://www.microsoft.com/windows', name: 'Windows' },
   ],
 };
 
