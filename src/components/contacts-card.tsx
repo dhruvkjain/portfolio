@@ -17,7 +17,7 @@ export default function ContactsCard() {
     <Sheet>
       <SheetTrigger asChild>
         <button
-          className="group cursor-pointer m-0 w-full h-full bg-black text-left"
+          className="group cursor-pointer m-0 w-full h-full text-left"
           aria-label="Open contacts"
         >
           <div className="w-full h-20 border border-[#DAD9D8] flex justify-between pl-2 pb-2 bg-[#DAD9D8]">

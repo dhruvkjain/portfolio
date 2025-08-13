@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import ConcentricPanel from "@/components/concentric-panel"
 import SidebarNav from "@/components/sidebar-nav"
 import ContactsCard from "@/components/contacts-card"
@@ -10,6 +10,8 @@ import SkillsBlock from "@/components/skills"
 import GetAge from "@/lib/age"
 import Hellosvg from "../../public/images/hello.svg"
 import FouroFoursvg from "../../public/images/fourofour.svg"
+import dynamic from "next/dynamic";
+const Dither = dynamic(() => import("@/components/dither-bg"), { ssr: false });
 
 import { ArrowUpRight } from 'lucide-react'
 import {
@@ -28,101 +30,78 @@ type TabKey = "hello" | "about" | "skills" | "projects" | "404"
 export default function Page() {
   const [active, setActive] = useState<TabKey>("hello")
 
+  const DitherBackground = useMemo(() => (
+    <Dither
+      waveColor={[0.5, 0.5, 0.5]}
+      disableAnimation={false}
+      enableMouseInteraction={true}
+      mouseRadius={0.3}
+      colorNum={4}
+      waveAmplitude={0.3}
+      waveFrequency={3}
+      waveSpeed={0.05}
+    />
+  ), []);
+
   return (
-    <main className="md:flex md:justify-center md:items-center min-h-screen md:max-h-screen bg-black text-[#DAD9D8]">
-      <div className="md:min-w-[80vw] max-w-7xl">
-        {/* Outer frame */}
-        <div className="w-full">
-          {/* Header */}
-          <div className="flex justify-between items-center md:block border border-[#DAD9D8] px-6 py-8">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">
-              Dhruv Jain
-            </h1>
-            {/* <div>
-              <Sheet>
-                <SheetTrigger asChild>
-                  <button
-                    className="group m-0 w-full h-full bg-black text-left"
-                    aria-label="Menubar"
-                  >
-                    <CiMenuKebab className="w-6 h-6 md:hidden block"/>
-                  </button>
-                </SheetTrigger>
-                  <SheetContent side="left" className="bg-black text-[#DAD9D8]">
-                  <SheetHeader>
-                    <SheetTitle>Contacts</SheetTitle>
-                  </SheetHeader>
-                  <div className="mt-6 grid gap-3">
-                    <Link className="underline-offset-4 hover:underline" href="mailto:you@example.com">
-                      you@example.com
-                    </Link>
-                    <Link
-                      className="underline-offset-4 hover:underline"
-                      href="https://www.linkedin.com/"
-                      target="_blank"
-                    >
-                      LinkedIn
-                    </Link>
-                    <Link
-                      className="underline-offset-4 hover:underline"
-                      href="https://github.com/your-github"
-                      target="_blank"
-                    >
-                      GitHub
-                    </Link>
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div> */}
-          </div>
+    <main className="relative min-h-screen overflow-hidden">
+      <div className="absolute inset-0 w-full h-full">
+        {DitherBackground}
+      </div>
+      <div className="relative z-10 md:flex md:justify-center md:items-center min-h-screen md:max-h-screen text-[#DAD9D8]">
+        <div className="md:min-w-[80vw] max-w-7xl bg-black/70">
 
-          {/* Body */}
-          <div className="w-full h-full grid grid-cols-12 md:gap-6 gap-2 border-b border-[#DAD9D8]">
-            {/* LEFT SIDEBAR */}
-            <aside className="col-span-12 md:col-span-2 lg:col-span-2 md:w-fit h-full">
-              <SidebarNav
-                active={active}
-                onChange={(k) => setActive(k as TabKey)}
-              />
+          <div className="w-full">
 
-              <div className="hidden md:block mt-6 text-2xl -translate-x-10 text-[#FFDDC0]">thinking</div>
-
-              <div className="hidden mt-6 md:flex md:justify-end md:items-end">
-                <ContactsCard />
-              </div>
-            </aside>
-
-            <div className="w-full h-full flex flex-col justify-between col-span-12 md:col-span-9 lg:col-span-10">
-              <div className="w-full h-full grid grid-cols-10 gap-2">
-                {/* CENTER CONTENT */}
-                <section className="w-full md:h-full pt-12 pb-12 flex justify-center items-center col-span-10 md:col-span-6 lg:col-span-6">
-                  <div className="w-full md:h-full border border-white/60">
-                    {active === "hello" && <HelloBlock />}
-                    {active === "about" && <AboutBlock />}
-                    {active === "skills" && <SkillsBlock />}
-                    {active === "projects" && <ProjectsBlock />}
-                    {active === "404" && <Block404 />}
-                  </div>
-                </section>
-
-                {/* RIGHT DECORATIVE PANEL */}
-                <section className="w-full h-full col-span-10 md:col-span-4 lg:col-span-4">
-                  <ConcentricPanel />
-                </section>
-              </div>
-
-              {/* Footer band */}
-              <div className="flex items-center justify-between gap-4 px-4 py-6 md:px-6 border-r border-t border-l border-[#DAD9D8]">
-                <p className="w-full text-center text-2xl font-bold md:text-3xl">
-                  You do it right <span className="px-2">&</span> You do it everyday
-                </p>
-              </div>
-
+            <div className="flex justify-between items-center md:block border border-[#DAD9D8] px-6 py-8">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">
+                Dhruv Jain
+              </h1>
             </div>
+
+            <div className="w-full h-full grid grid-cols-12 md:gap-6 gap-2 border-b border-[#DAD9D8]">
+              <aside className="col-span-12 md:col-span-2 lg:col-span-2 md:w-fit h-full">
+                <SidebarNav
+                  active={active}
+                  onChange={(k) => setActive(k as TabKey)}
+                />
+
+                <div className="hidden md:block mt-6 text-2xl -translate-x-10 text-[#FFDDC0]">thinking</div>
+
+                <div className="hidden mt-6 md:flex md:justify-end md:items-end">
+                  <ContactsCard />
+                </div>
+              </aside>
+
+              <div className="w-full h-full flex flex-col justify-between col-span-12 md:col-span-9 lg:col-span-10">
+                <div className="w-full h-full grid grid-cols-10 gap-2">
+                  <section className="w-full md:h-full pt-12 pb-12 flex justify-center items-center col-span-10 md:col-span-6 lg:col-span-6">
+                    <div className="w-full md:h-full border border-white/60 bg-black">
+                      {active === "hello" && <HelloBlock />}
+                      {active === "about" && <AboutBlock />}
+                      {active === "skills" && <SkillsBlock />}
+                      {active === "projects" && <ProjectsBlock />}
+                      {active === "404" && <Block404 />}
+                    </div>
+                  </section>
+
+                  <section className="w-full h-full col-span-10 md:col-span-4 lg:col-span-4">
+                    <ConcentricPanel />
+                  </section>
+                </div>
+
+                <div className="flex items-center justify-between gap-4 px-4 py-6 md:px-6 border-r border-t border-l border-[#DAD9D8]">
+                  <p className="w-full text-center text-2xl font-bold md:text-3xl">
+                    You do it right <span className="px-2">&</span> You do it everyday
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+
           </div>
-
-
-
         </div>
       </div>
     </main>
@@ -270,6 +249,15 @@ function ProjectsBlock() {
         </>
       ),
     },
+    {
+      title: "Synapse",
+      href: "https://dhruvkjain.github.io/Synapse2024/",
+      desc: (
+        <>
+          A <span className="font-bold text-[#DAD9D8]">creative and interactive website</span> for DA-IICT&apos;s annual cultural fest
+        </>
+      ),
+    },
   ]
   return (
     <div className="space-y-4 h-full md:h-[430px] overflow-auto scrollbar-hide p-6">
@@ -278,6 +266,7 @@ function ProjectsBlock() {
         {items.map((p) => (
           <Link
             key={p.title}
+            target="_blank"
             href={p.href}
             className="group flex items-start justify-between  border border-white/60 p-4 transition-colors hover:bg-white/5"
           >
