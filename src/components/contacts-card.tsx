@@ -40,7 +40,7 @@ export default function ContactsCard() {
       </SheetTrigger>
       <SheetContent side="left" className="bg-black p-8 text-[#DAD9D8]">
         <SheetHeader>
-          <SheetTitle>Contacts</SheetTitle>
+          <SheetTitle></SheetTitle>
         </SheetHeader>
         <div className="flex flex-col gap-4 text-zinc-400 h-[60%] justify-center items-center">
         <Link

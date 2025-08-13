@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import ConcentricPanel from "@/components/concentric-panel"
 import SidebarNav from "@/components/sidebar-nav"
 import ContactsCard from "@/components/contacts-card"
@@ -29,6 +29,19 @@ type TabKey = "hello" | "about" | "skills" | "projects" | "404"
 
 export default function Page() {
   const [active, setActive] = useState<TabKey>("hello")
+  const [showDither, setShowDither] = useState<boolean>(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDither(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const DitherBackground = useMemo(() => (
     <Dither
@@ -44,10 +57,12 @@ export default function Page() {
   ), []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-        {DitherBackground}
-      </div>
+    <main className="bg-black md:bg-transparent relative min-h-screen overflow-hidden">
+      {showDither && (
+        <div className="absolute inset-0 w-full h-full">
+          {DitherBackground}
+        </div>
+      )}
       <div className="relative z-10 md:flex md:justify-center md:items-center min-h-screen md:max-h-screen text-[#DAD9D8]">
         <div className="md:min-w-[80vw] max-w-7xl bg-black/70">
 
