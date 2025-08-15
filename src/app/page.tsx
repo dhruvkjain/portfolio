@@ -256,6 +256,15 @@ function ProjectsBlock() {
       ),
     },
     {
+      title: "COCO-SSD",
+      href: "https://dhruvkjain.github.io/COCO-SSD-webcam/",
+      desc: (
+        <>
+          <span className="font-bold text-[#DAD9D8]">Multiple object detection locally</span>, using pre trained model in <span className="font-bold text-[#DAD9D8]">TensorFlow.js</span>
+        </>
+      ),
+    },
+    {
       title: "Inkling",
       href: "https://github.com/dhruvkjain/Inkling",
       desc: (
