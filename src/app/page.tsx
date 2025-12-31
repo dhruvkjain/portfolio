@@ -9,6 +9,7 @@ import ContactsCard from "@/components/contacts-card"
 import SkillsBlock from "@/components/skills"
 import GetAge from "@/lib/age"
 import Hellosvg from "../../public/images/hello.svg"
+import Dhruvjpeg from "../../public/images/dhruvkjain2.jpeg"
 import FouroFoursvg from "../../public/images/fourofour.svg"
 import dynamic from "next/dynamic";
 const Dither = dynamic(() => import("@/components/dither-bg"), { ssr: false });
@@ -68,7 +69,7 @@ export default function Page() {
 
           <div className="w-full">
 
-            <div className="flex justify-between items-center md:block border border-[#DAD9D8] px-6 py-8">
+            <div className="w-full flex justify-between items-center border border-[#DAD9D8] px-6 py-8">
               <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">
                 Dhruv Jain
               </h1>
@@ -106,16 +107,24 @@ export default function Page() {
                 </div>
 
                 <div className="flex items-center justify-between gap-4 px-4 py-6 md:px-6 border-r border-t border-l border-[#DAD9D8]">
-                  <p className="w-full text-center text-2xl font-bold md:text-3xl">
-                    You do it right <span className="px-2">&</span> You do it everyday
-                  </p>
+                  <div className="w-full text-center text-2xl font-bold md:text-3xl">
+                    <div className="w-full hover:underline hover:text-white/50">
+                      <Link
+                        href="https://drive.google.com/file/d/1JawGiaOZwy7GvFlfL4xZeNbBNEdku7h6/view?usp=sharing"
+                        target="_blank"
+                        className=""
+                      ><span className="flex items-center justify-center">
+                          <span className="pr-2">[resume]</span>
+                          <ArrowUpRight className="h-10 w-10" />
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
 
               </div>
             </div>
-
-
-
+            
           </div>
         </div>
       </div>
@@ -125,36 +134,44 @@ export default function Page() {
 
 function HelloBlock() {
   return (
-    <div className="h-full md:h-[430px] p-6 overflow-auto scrollbar-hide">
-        <Image src={Hellosvg} alt="Hello" height={80}/>
-        <p className="pt-8 max-w-prose text-sm md:text-base">
-          (He/Him) • {GetAge()+"y/o"} • India
-          <br></br>
-          Rust Developer • Full-Stack Developer • Open Source Contributor
-          <br></br>
-          <br></br>
-          Just exploring and goofing around the tech fields with project based learning approach 😋.
-          <br></br>
-          <br></br>
-          curious what I am learning ? check here <span className="hover:underline hover:text-white/50">{<Link
-            href="https://dhruvkjain.github.io/pkms/what_im_learning"
-            target="_blank"
-            className=""
-          >[pkms]</Link>}</span>
-          <br></br>
-          curious what I am building ? check here <span className="hover:underline hover:text-white/50">{<Link
-            href="https://github.com/dhruvkjain"
-            target="_blank"
-            className="hover:underline"
-          >[github]</Link>}</span>
-          <br></br>
-          <br></br>
-          Currently pursuing B.Tech. in Information and Communication Technology from <span className="hover:underline hover:text-white/50 cursor-pointer">{<Link
-            href="https://daiict.ac.in/"
-            target="_blank"
-            className="hover:underline"
-          >Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT)</Link>}</span>
-        </p>
+    <div className="h-full p-6 overflow-auto scrollbar-hide">
+      {/* <img
+        src="/images/dhruvkjain.jpeg"
+        alt="dhruvkjain"
+        className="w-auto h-[150px] rounded-md"
+      /> */}
+      <div className="grid col-auto md:flex md:items-center">
+      <Image src={Dhruvjpeg} className="mb-4 md:mb-0 rounded-md mr-10" alt="Dhruv Jain" height={110} />
+      <Image src={Hellosvg} alt="Hello" height={80} />
+      </div>
+      <p className="pt-8 max-w-prose text-sm md:text-base">
+        (He/Him) • {GetAge() + "y/o"} • India
+        <br></br>
+        Rust Developer • Full-Stack Developer • Open Source Contributor
+        <br></br>
+        <br></br>
+        just exploring and goofing around the tech fields with project based learning approach
+        <br></br>
+        <br></br>
+        curious what I am learning ? check here <span className="hover:underline hover:text-white/50">{<Link
+          href="https://dhruvkjain.github.io/pkms/what_im_learning"
+          target="_blank"
+          className=""
+        >[pkms]</Link>}</span>
+        <br></br>
+        curious what I am building ? check here <span className="hover:underline hover:text-white/50">{<Link
+          href="https://github.com/dhruvkjain"
+          target="_blank"
+          className="hover:underline"
+        >[github]</Link>}</span>
+        <br></br>
+        <br></br>
+        Currently pursuing B.Tech. in Information and Communication Technology from <span className="hover:underline hover:text-white/50 cursor-pointer">{<Link
+          href="https://daiict.ac.in/"
+          target="_blank"
+          className="hover:underline"
+        >Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT)</Link>}</span>
+      </p>
     </div>
   )
 }
@@ -174,21 +191,29 @@ function AboutBlock() {
       </div>
       <h3 className="text-3xl font-semibold text-[#FFDDC0]"># about</h3>
       {/* <Image src={Snowflake} alt="snowflake" height={50}/> */}
-      <p className="max-w-prose text-sm md:text-base">
-        {/* I build delightful web experiences with modern React, TypeScript, and
-        design systems. I enjoy crafting minimal, tactile interfaces and
-        shipping fast. */}
-        I build in binary fashion, 
+      <div className="max-w-prose text-sm md:text-base">
+        <details className="pl-5">
+          <summary className="cursor-pointer hover:underline hover:text-white/50">[about me]</summary>
+          <div>
+          I build in binary fashion,
+          <br></br>
+          either low level projects involving <span className="hover:text-white cursor-default">Rust, C++ and C</span>
+          <br></br>
+          or industrial level, high performance, reliable, scalable systems using <span className="hover:hover:text-white cursor-default">Javascript, Typescript and Python</span>
+          </div>
+        </details>
         <br></br>
-        either low level projects involving <span className="hover:text-white cursor-default">Rust, C++ and C</span> 
-        <br></br>
-        or industrial level, high performance, reliable, scalable systems using <span className="hover:hover:text-white cursor-default">Javascript, Typescript and Python</span>
-        <br></br>
-        <br></br>
-        I was <span className="hover:text-white cursor-default">Google Developer Groups on Campus (GDGC) DA-IICT Core member</span> and Team member of <span className="hover:text-white cursor-default">AI Club DA-IICT</span>.
-        <br></br>
-        <span className="hover:text-white cursor-default">Won SIH Internal Hackathon in 2024</span>
-      </p>
+        <ul className="list-disc pl-5 space-y-2">
+        <li className="p-0 m-0">currently contributing to a rust-based <span className="hover:text-white cursor-default">Computer Vision library</span>, <span className="hover:underline hover:text-white/50">{<Link
+            href="https://github.com/kornia/kornia-rs/pulls?q=is%3Apr+author%3Adhruvkjain"
+            target="_blank"
+            className="hover:underline"
+          >[kornia-rs]</Link>}</span></li>
+        <li className="p-0 m-0">i was <span className="hover:text-white cursor-default">Google Developer Groups on Campus (GDGC) DA-IICT Core member</span> and Team member of <span className="hover:text-white cursor-default">AI Club DA-IICT</span></li>
+        <li className="p-0 m-0">achieved <span className="hover:text-white cursor-default">AIR 13026</span> in JEE Advance and <span className="hover:text-white cursor-default">AIR 15850</span> in JEE Mains</li>
+        <li className="p-0 m-0">won <span className="hover:text-white cursor-default">SIH Internal Hackathon in 2024</span></li>
+        </ul>
+      </div>
 
       <div className="flex gap-4 text-zinc-400">
         <Link
@@ -237,6 +262,15 @@ function AboutBlock() {
 
 function ProjectsBlock() {
   const items = [
+    {
+      title: "blackice_proctor",
+      href: "https://github.com/dhruvkjain/blackice_proctor",
+      desc: (
+        <>
+          a <span className="font-bold text-[#DAD9D8]">system-level proctoring desktop application</span> built in <span className="font-bold text-[#DAD9D8]">rust</span> designed to enforce strict testing environments by reporting unauthorized networks, applications, and hardware bypasses to a <span className="font-bold text-[#DAD9D8]">axum</span> rust cloud server
+        </>
+      ),
+    },
     {
       title: "nn-rs",
       href: "https://github.com/dhruvkjain/nn-rs",
@@ -309,7 +343,7 @@ function ProjectsBlock() {
 function Block404() {
   return (
     <div className="flex flex-col justify-center items-center h-full p-6 md:h-[300px]">
-      <Image src={FouroFoursvg} alt="404" height={80}/>
+      <Image src={FouroFoursvg} alt="404" height={80} />
       <h3 className="mt-8 text-3xl text-center font-semibold text-[#FFDDC0]">Nothing happens here</h3>
       <p className="text-xl mt-2 text-center font-semibold text-[#FFDDC0]">But there is something neat over there:</p>
       <p><span className="hover:underline hover:text-white/50">{<Link
@@ -317,11 +351,11 @@ function Block404() {
         target="_blank"
         className="hover:underline"
       >[github]</Link>}</span>
-      <span className="ml-4 hover:underline hover:text-white/50">{<Link
-        href="https://dhruvkjain.github.io/pkms/what_im_learning"
-        target="_blank"
-        className="hover:underline"
-      >[pkms]</Link>}</span></p>
+        <span className="ml-4 hover:underline hover:text-white/50">{<Link
+          href="https://dhruvkjain.github.io/pkms/what_im_learning"
+          target="_blank"
+          className="hover:underline"
+        >[pkms]</Link>}</span></p>
     </div>
   )
 }

@@ -39,6 +39,9 @@ import {
   SiJupyter,
   SiGooglecolab,
   SiVite,
+  SiFastapi,
+  SiSupabase,
+  SiNeo4J,
 } from 'react-icons/si';
 
 import { VscVscode } from "react-icons/vsc";
@@ -64,6 +67,8 @@ const techs = {
     { icon: <SiNextdotjs />, href: 'https://nextjs.org/', name: 'Next.js' },
     { icon: <SiVite />, href: 'https://vitejs.dev/', name: 'Vite' },
     { icon: <SiQt />, href: 'https://www.qt.io/', name: 'QT' },
+    { icon: <SiFastapi />, href: 'https://fastapi.tiangolo.com/', name: 'FastAPI' },
+    { icon: <span className="font-bold">DS</span>, href: 'https://github.com/stanfordnlp/dspy', name: 'DSPy' },
     { icon: <SiTailwindcss />, href: 'https://tailwindcss.com/', name: 'TailwindCSS' },
     { icon: <SiBootstrap />, href: 'https://getbootstrap.com/', name: 'Bootstrap' },
   ],
@@ -72,8 +77,10 @@ const techs = {
   Databases: [
     { icon: <SiMongodb />, href: 'https://www.mongodb.com/', name: 'MongoDB' },
     { icon: <SiPostgresql />, href: 'https://www.postgresql.org/', name: 'PostgreSQL' },
+    { icon: <SiSupabase />, href: 'https://supabase.com/', name: 'Supabase' },
     { icon: <SiFirebase />, href: 'https://firebase.google.com/', name: 'Firebase' },
     { icon: <SiRedis />, href: 'https://redis.io/', name: 'Redis' },
+    { icon: <SiNeo4J />, href: 'https://neo4j.com/', name: 'Neo4j' },
   ],
 
   // Developer Tools
