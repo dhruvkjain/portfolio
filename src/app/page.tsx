@@ -58,14 +58,14 @@ export default function Page() {
   ), []);
 
   return (
-    <main className="bg-black md:bg-transparent relative min-h-screen overflow-hidden">
-      {showDither && (
+    <main className="bg-[#131010] relative min-h-screen overflow-hidden">
+      {/* {showDither && (
         <div className="absolute inset-0 w-full h-full">
           {DitherBackground}
         </div>
-      )}
+      )} */}
       <div className="relative z-10 md:flex md:justify-center md:items-center min-h-screen md:max-h-screen text-[#DAD9D8]">
-        <div className="md:min-w-[80vw] max-w-7xl bg-black/70">
+        <div className="md:min-w-[80vw] max-w-7xl bg-[#131010]">
 
           <div className="w-full">
 
