@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="0YZA7R87Dfq5QTPZlN-ARUBUVdperv6Bq99uKxRaYgE" />
+      </head>
       <body className={bricolage.className}>
         <div className='text-[#DAD9D8]'>
           {children}
