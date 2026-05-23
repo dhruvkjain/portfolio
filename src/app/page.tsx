@@ -114,7 +114,7 @@ export default function Page() {
                         target="_blank"
                         className=""
                       ><span className="flex items-center justify-center">
-                          <span className="pr-2">[resume]</span>
+                          <span className="pr-2">[cv of success]</span>
                           <ArrowUpRight className="h-10 w-10" />
                         </span>
                       </Link>
@@ -134,7 +134,7 @@ export default function Page() {
 
 function HelloBlock() {
   return (
-    <div className="h-full p-6 overflow-auto scrollbar-hide">
+    <div className="space-y-4 h-full md:h-[430px] overflow-auto scrollbar-hide p-6">
       {/* <img
         src="/images/dhruvkjain.jpeg"
         alt="dhruvkjain"
@@ -144,10 +144,21 @@ function HelloBlock() {
       <Image src={Dhruvjpeg} className="mb-4 md:mb-0 rounded-md mr-10" alt="Dhruv Jain" height={110} />
       <Image src={Hellosvg} alt="Hello" height={80} />
       </div>
-      <p className="pt-8 max-w-prose text-sm md:text-base">
+      <p className="pt-0 max-w-prose text-sm md:text-base">
         (He/Him) • {GetAge() + "y/o"} • India
         <br></br>
-        Rust Developer • Full-Stack Developer • Open Source Contributor
+        <br></br>
+        <strong>Quant Dev Intern</strong> @<span className="hover:underline hover:text-white/50">{<Link
+          href="https://obsidiancapital.in/"
+          target="_blank"
+          className=""
+        >Obsidian  Capital</Link>}</span> • OSS Maintainer @<span className="hover:underline hover:text-white/50">{<Link
+          href="https://github.com/kornia"
+          target="_blank"
+          className=""
+        >Kornia</Link>}</span>
+        <br></br> 
+        Rust Dev • Full-Stack Dev • Open Source Contributor
         <br></br>
         <br></br>
         just exploring and goofing around the tech fields with project based learning approach
@@ -209,6 +220,7 @@ function AboutBlock() {
             target="_blank"
             className="hover:underline"
           >[kornia-rs]</Link>}</span></li>
+        <li className="p-0 m-0"><span className="hover:text-white cursor-default">top 3 finalist in IICPC Dev Hackathon</span> in Network & Application Blocking System category out of 200+ developers</li>
         <li className="p-0 m-0">i was <span className="hover:text-white cursor-default">Google Developer Groups on Campus (GDGC) DA-IICT Core member</span> and Team member of <span className="hover:text-white cursor-default">AI Club DA-IICT</span></li>
         <li className="p-0 m-0">achieved <span className="hover:text-white cursor-default">AIR 13026</span> in JEE Advance and <span className="hover:text-white cursor-default">AIR 15850</span> in JEE Mains</li>
         <li className="p-0 m-0">won <span className="hover:text-white cursor-default">SIH Internal Hackathon in 2024</span></li>
