@@ -11,10 +11,10 @@ type Props = {
 
 const items = [
   { key: "hello", label: "/" },
-  { key: "about", label: "about" },
-  { key: "skills", label: "skills" },
+  { key: "experience", label: "experience" },
   { key: "projects", label: "projects" },
-  { key: "404", label: "404" },
+  { key: "skills", label: "skills" },
+  { key: "about", label: "about" },
 ]
 
 export default function SidebarNav({ active, onChange }: Props) {
